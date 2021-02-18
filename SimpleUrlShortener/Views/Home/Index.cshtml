@@ -1,0 +1,32 @@
+﻿@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="text-center">
+    <form class="form-horizontal" method="post" asp-controller="Home" asp-action="AddUrl">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Url</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="fullUrl" type="text" value="Url to shorten" name="fullUrl">
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Add" />
+    </form>
+</div>
+
+<div>
+    <p>Existing keys:</p>
+    <ul>
+        @foreach (var key in Model.ExistingKeys)
+        { 
+            <li>@key</li>
+        }
+    </ul>
+</div>
